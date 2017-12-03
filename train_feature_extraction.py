@@ -5,9 +5,27 @@ from alexnet import AlexNet
 
 # TODO: Load traffic signs data.
 
+training_file = 'train.p'
+
+with open(training_file, mode='rb') as f:
+    train = pickle.load(f)
+
+X = train['features']
+y = train['labels']
+nb_classes = 43
+
 # TODO: Split data into training and validation sets.
 
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+print(X_train.shape)
+print(X_test.shape)
+print(y_train.shape)
+print(y_test.shape)
+
 # TODO: Define placeholders and resize operation.
+
+
 
 # TODO: pass placeholder as first argument to `AlexNet`.
 fc7 = AlexNet(..., feature_extract=True)
