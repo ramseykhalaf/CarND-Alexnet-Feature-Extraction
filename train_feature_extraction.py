@@ -18,6 +18,15 @@ fc7 = tf.stop_gradient(fc7)
 
 # TODO: Add the final layer for traffic sign classification.
 
+shape = (fc7.get_shape().as_list()[-1], nb_classes)  # use this shape for the weight matrix
+
+print(shape)
+weights = tf.Variable(tf.truncated_normal(shape=shape, seed=123, dtype=tf.float32))
+biases = tf.Variable(tf.zeros(nb_classes), dtype=tf.float32)
+
+logits = tf.matmul(fc7, weights) + biases
+probs = tf.nn.softmax(logits)
+
 # TODO: Define loss, training, accuracy operations.
 # HINT: Look back at your traffic signs project solution, you may
 # be able to reuse some the code.
