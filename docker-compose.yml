@@ -1,0 +1,10 @@
+version: "2.1"
+services:
+  python-env:
+    image: udacity/carnd-term1-starter-kit
+    ports:
+      - "8892:8892"
+    environment:
+      - "PORT=8892"
+    volumes:
+      - ".:/src"
