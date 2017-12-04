@@ -22,6 +22,7 @@ fc7 = AlexNet(resized, feature_extract=True)
 shape = (fc7.get_shape().as_list()[-1], nb_classes)  # use this shape for the weight matrix
 
 print(shape)
+
 weights = tf.Variable(tf.truncated_normal(shape=shape, seed=123, dtype=tf.float32))
 biases = tf.Variable(tf.zeros(nb_classes), dtype=tf.float32)
 
