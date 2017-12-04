@@ -61,6 +61,8 @@ with tf.Session() as sess:
         X_train, y_train = shuffle(X_train, y_train)
         t0 = time.time()
         for offset in range(0, X_train.shape[0], batch_size):
+            print("batch: ", offset, X_train.shape[0])
+            print("Time: %.3f seconds" % (time.time() - t0))
             end = offset + batch_size
             sess.run(train_op, feed_dict={features: X_train[offset:end], labels: y_train[offset:end]})
 
